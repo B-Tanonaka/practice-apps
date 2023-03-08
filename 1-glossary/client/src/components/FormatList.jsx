@@ -1,13 +1,10 @@
 import React from "react";
 
-const FormatList = ({ list, setList }) => {
-  let listItems = list.map(word => {
-    <li key={word.word}>{word.word}: {word.description}</li>
-  })
+const FormatList = ({ list }) => {
 
-  return (
-    <ol>{listItems}</ol>
-  )
+  let listItems = list.map(word => {
+    return <li key={word.word}>{word.word}: {word.description}</li>
+  })
 }
 
 export default FormatList;

@@ -1,8 +1,10 @@
 let sampleData = [
-  {hello: 'saying wassup'},
-  {goodbye: 'saying get outta here'},
-  {howzit: 'greeting for saying hello'},
-  {choke: 'plenty, a lot'},
-  {guarens: 'guarantee'}
-  {cherreh: 'nice, awesome, crisp'}
+  {word: 'hello', description: 'saying wassup'},
+  {word: 'goodbye', description: 'saying get outta here'},
+  {word: 'howzit', description: 'greeting for saying hello'},
+  {word: 'choke', description: 'plenty, a lot'},
+  {word: 'guarens', description: 'guarantee'},
+  {word: 'cherreh', description: 'nice, awesome, crisp'}
 ]
+
+export default sampleData;

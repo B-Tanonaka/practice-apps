@@ -1,12 +1,10 @@
 import React from "react";
 
-const AddWords ({ list, setList }) => {
 
 
-  return (
+const AddWords = ({ list, setList }) => {
 
-  )
+
 };
-
 
 export default AddWords;
