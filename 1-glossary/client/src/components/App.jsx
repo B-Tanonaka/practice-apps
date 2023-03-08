@@ -7,12 +7,13 @@ import sampleData from "./sampleData.js";
 const App = () => {
 
   const [list, setList] = useState(sampleData);
+  const [allWords, setAllWords] = useState(list);
   const [search, setSearch] = useState('');
 
 return (
     <div>
     <h1>Glossary</h1>
-    {/* <AddWords list={list} setList={setList} /> */}
+    <AddWords list={list} setList={setList} />
     <FormatList list={list} />
     </div>
   )
