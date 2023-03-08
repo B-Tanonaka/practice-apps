@@ -1,26 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 
 const AddWords = ({ list, setList }) => {
 
-  // set query variable
+  let individualWord = {
+    word: '',
+    description: '',
+  }
+  const [entry, setEntry] = useState(individualWord);
 
-  // create onChange handler
-    // prevent default
-    // query is the event.target.value
-    // create new list variable
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let newList = [...list];
+    newList.push(entry);
+    setList(newList);
 
-  // create onSubmit handler
-    // prevent default
-    // query is the event.target.value
-    // push new word and description to newlist
-    // set list to newlist
+  }
 
-  render (
-    // form
-      // create word entry
-      // create description entry
-      // create submit button
+  const handleInput = (e) => {
+    e.preventDefault();
+    setEntry({...entry, [e.target.name]: e.target.value})
+}
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input name="word" value={entry.name} placeholder="Word" onChange={handleInput}/>
+      <input name="description" value={entry.description} placeholder="Description" onChange={handleInput}/>
+      <button>Submit</button>
+    </form>
   )
+
 };
 
 export default AddWords;
