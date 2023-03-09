@@ -3,6 +3,7 @@ import { useState } from "react";
 import AddWords from "./AddWords.jsx";
 import FormatList from "./FormatList.jsx";
 import sampleData from "./sampleData.js";
+import Search from "./Search.jsx"
 
 const App = () => {
 
@@ -13,8 +14,9 @@ const App = () => {
 return (
     <div>
     <h1>Glossary</h1>
-    <AddWords list={list} setList={setList} />
+    <AddWords list={list} setList={setList} allWords={allWords}/>
     <FormatList list={list} />
+    <Search list={list} setList={setList} setAllWords={setAllWords}/>
     </div>
   )
 }
