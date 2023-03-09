@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+const axios = require("axios").default;
 
 const AddWords = ({ list, setList, setAllWords }) => {
 
@@ -17,10 +18,18 @@ const AddWords = ({ list, setList, setAllWords }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let newList = [...list];
-    newList.push(entry);
-    console.log('newList: ', newList);
-    setList(newList);
-    setAllWords(newList);
+    axios.post('/words', {
+      word: entry.word,
+      description: entry.description
+    }).then(() => {
+      return axios.get('/words')
+      .then(response => {
+        console.log('response.data: ', response.data);
+        newList.push(response.data);
+        setList(newList);
+        setAllWords(newList);
+      })
+    })
   }
 
   return (

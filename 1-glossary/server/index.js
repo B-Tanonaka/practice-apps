@@ -12,22 +12,26 @@ app.use(express.json());
 
 app.use(cors());
 
-app.get('/', (req, res) => {
-  // getAll()
-  // .then(() => {
-  //   res.end('get request successful')
-  // })
-})
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
-app.post('/', (req, res) => {
-  create()
-  .then(response => {
-  })
+app.post('/words', (req, res) => {
+  // create(req.body)
+  console.log('req.body: ', req.body)
+  // .then(response => {
+
+  // })
   res.send('POST request successful')
 })
 
-app.use(express.static(path.join(__dirname, "../client/dist")));
-
+app.get('/words', (req, res) => {
+  // getAll()
+  // .then((response) => {
+  //   res.send(response);
+  // }).catch(() => {
+  //   console.log('Error in app.get')
+  // })
+  console.log('got gitten')
+})
 
 app.listen(process.env.PORT);
 console.log(`Listening at http://localhost:${process.env.PORT}`);

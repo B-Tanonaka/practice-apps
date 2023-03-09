@@ -1,16 +1,18 @@
 const { save } = require('./db');
 const axios = require('axios');
 
-const server = 'http://localhost:2413'
+const dataURL = 'http://localhost:glossary'
 
 module.exports = {
 
   getAll: () =>  {
-    return Repo.find()
+    return Repo.find({})
   },
 
   create: (wordObj) => {
-    return axios.get(server)
+    return axios.post(dataURL), {
+
+    }
     .then(response => {
       console.log('in create')
     }).catch(() => {
