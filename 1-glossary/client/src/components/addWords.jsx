@@ -24,10 +24,8 @@ const AddWords = ({ list, setList, setAllWords }) => {
     }).then(() => {
       return axios.get('/words')
       .then(response => {
-        console.log('response.data: ', response.data);
-        newList.push(response.data);
-        setList(newList);
-        setAllWords(newList);
+        setList(response.data);
+        setAllWords(response.data);
       })
     })
   }

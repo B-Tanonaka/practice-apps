@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
-const { getAll, create } = require("./models")
+const { getAll, create } = require("./db")
 
 const PORT = process.env.PORT || 2413;
 
@@ -17,18 +17,19 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 app.post('/words', (req, res) => {
   create(req.body)
   .then(response => {
-    res.status(201).end(response);
+    res.status(201).send(response);
   })
 })
 
 app.get('/words', (req, res) => {
-  // getAll()
-  // .then((response) => {
-  //   res.send(response);
-  // }).catch(() => {
+  getAll()
+  .then(data => {
+    // console.log('responseGet: ', data)
+    res.send(data);
+  })
+  // .catch(() => {
   //   console.log('Error in app.get')
   // })
-  console.log('got gitten')
 })
 
 app.listen(process.env.PORT);

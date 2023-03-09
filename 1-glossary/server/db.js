@@ -8,9 +8,16 @@ const wordSchema = new mongoose.Schema({
 
 const Word = mongoose.model('Word', wordSchema);
 
-module.exports.save = (wordData) => {
-  let newWord = new Word(wordData);
-  return newWord.save();
+module.exports = {
+
+  create: (wordData) => {
+    let newWord = new Word(wordData);
+    return newWord.save()
+  },
+
+  getAll: () => {
+    return Word.find({});
+  }
 }
 
 

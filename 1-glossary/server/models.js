@@ -1,20 +1,19 @@
 const { save } = require('./db');
-const axios = require('axios');
 
 const dataURL = 'http://localhost:glossary'
 
-module.exports = {
+// module.exports = {
 
-  getAll: () =>  {
-    return Repo.find({})
-  },
+//   getAll: () =>  {
+//     return Word.find({})
+//   },
 
-  create: (wordObj) => {
-    return save(wordObj)
-    .then(response => {
-      console.log('in create')
-    }).catch(() => {
-      console.log('Error')
-    })
-  }
-}
+//   create: (wordObj) => {
+//     return save(wordObj)
+//     .then(() => {
+//       console.log('Saves to database')
+//     }).catch(() => {
+//       console.log('Error saving to database')
+//     })
+//   }
+// }
