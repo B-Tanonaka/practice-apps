@@ -1,9 +1,12 @@
 import React from "react";
+import WordEntry from './WordEntry.jsx'
 
 const FormatList = ({ list }) => {
-  return list.map(word => {
-    return <p key={word.word}>{word.word}: {word.description}</p>
-  })
+  return (
+  <div>
+  {list.map((word, index) => <WordEntry key={index} word={word}/>)}
+  </div>
+  )
 }
 
 export default FormatList;

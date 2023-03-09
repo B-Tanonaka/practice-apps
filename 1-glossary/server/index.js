@@ -18,8 +18,9 @@ app.post('/words', (req, res) => {
   create(req.body)
   .then(response => {
     res.status(201).send(response);
-  }).catch(() => {
-    alert(`${req.body.word} already exists`)
+  })
+  .catch(() => {
+    res.status(404).send();
   })
 })
 

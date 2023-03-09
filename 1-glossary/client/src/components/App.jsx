@@ -15,8 +15,8 @@ const App = () => {
 
   useEffect(() => {
     axios.get('/words')
-    .then(response => {
-      setList(response.data);
+    .then(({data}) => {
+      setList(data);
     })
   }, [])
 
@@ -24,8 +24,8 @@ return (
     <div>
     <h1>Glossary</h1>
     <AddWords list={list} setList={setList} setAllWords={setAllWords}/>
-    <FormatList list={list} />
     <Search list={list} setList={setList} allWords={allWords}/>
+    <FormatList list={list} />
     </div>
   )
 }
