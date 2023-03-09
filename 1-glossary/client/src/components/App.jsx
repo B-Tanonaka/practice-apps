@@ -14,9 +14,9 @@ const App = () => {
 return (
     <div>
     <h1>Glossary</h1>
-    <AddWords list={list} setList={setList} allWords={allWords}/>
+    <AddWords list={list} setList={setList} setAllWords={setAllWords}/>
     <FormatList list={list} />
-    <Search list={list} setList={setList} setAllWords={setAllWords}/>
+    <Search list={list} setList={setList} allWords={allWords}/>
     </div>
   )
 }

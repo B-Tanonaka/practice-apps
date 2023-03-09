@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 
-const Search = ({ list, setList, setAllWords }) => {
+const Search = ({ list, setList, allWords }) => {
 
   const [query, setQuery] = useState('');
 
   const handleInput = (e) => {
     e.preventDefault();
     setQuery(e.target.value);
+
+    if (e.target.value=== '') {
+      setList(allWords)
+    }
   }
 
   const handleSearch = (e) => {
