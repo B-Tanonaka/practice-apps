@@ -2,8 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
+const { getAll, create } = require("./models")
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 2413;
 
 const app = express();
 
@@ -12,14 +13,16 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-  if (err) {
-    res.statusCode(404);
-    res.end('GET request failed')
-  }
-  res.end('get request successful')
+  // getAll()
+  // .then(() => {
+  //   res.end('get request successful')
+  // })
 })
 
 app.post('/', (req, res) => {
+  create()
+  .then(response => {
+  })
   res.send('POST request successful')
 })
 

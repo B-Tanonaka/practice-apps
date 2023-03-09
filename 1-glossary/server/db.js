@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-mongoose.connect('mongodb://localhost:3000');
+mongoose.connect('mongodb://localhost/glossary');
 
 const wordSchema = new mongoose.Schema({
-  word: string,
-  description: string
+  word: { type: String, unique: true },
+  description: String
 })
 
 const Word = mongoose.model('Word', wordSchema);
