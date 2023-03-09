@@ -15,12 +15,10 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.post('/words', (req, res) => {
-  // create(req.body)
-  console.log('req.body: ', req.body)
-  // .then(response => {
-
-  // })
-  res.send('POST request successful')
+  create(req.body)
+  .then(response => {
+    res.status(201).end(response);
+  })
 })
 
 app.get('/words', (req, res) => {

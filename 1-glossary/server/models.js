@@ -10,9 +10,7 @@ module.exports = {
   },
 
   create: (wordObj) => {
-    return axios.post(dataURL), {
-
-    }
+    return save(wordObj)
     .then(response => {
       console.log('in create')
     }).catch(() => {
