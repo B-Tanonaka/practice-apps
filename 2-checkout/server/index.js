@@ -24,13 +24,14 @@ app.use(logger);
 // Serves up all static and generated assets in ../client/dist.
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
-/****
- *
- *
- * Other routes here....
- *
- *
- */
+app.get('/checkout', (req, res) => {
+  res.send('GET request successful');
+})
+
+app.post('/checkout', (req, res) => {
+  db.connectAsync(req.body)
+  .then(res.send('POST request successful'));
+})
 
 app.listen(process.env.PORT);
 console.log(`Listening at http://localhost:${process.env.PORT}`);

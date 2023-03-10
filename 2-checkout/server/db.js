@@ -16,9 +16,22 @@ const db = Promise.promisifyAll(connection, { multiArgs: true });
 db.connectAsync()
   .then(() => console.log(`Connected to MySQL as id: ${db.threadId}`))
   .then(() =>
-    // Expand this table definition as needed:
     db.queryAsync(
-      "CREATE TABLE IF NOT EXISTS responses (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY)"
+      `CREATE TABLE IF NOT EXISTS responses (
+        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        name CHAR(255),
+        email CHAR(255),
+        password CHAR(20),
+        address_1 CHAR(30),
+        address_2 CHAR(30),
+        city CHAR(255),
+        state CHAR(255),
+        zipcode CHAR(255),
+        credit_card INT,
+        expiry_date DATE,
+        cvv INT(4),
+        billing_zip INT(6)
+        )`
     )
   )
   .catch((err) => console.log(err));
