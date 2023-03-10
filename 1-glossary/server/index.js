@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
-const { getAll, create, edit } = require("./db");
+const { getAll, create, remove, edit } = require("./db");
 
 const PORT = process.env.PORT || 2413;
 
@@ -35,6 +35,13 @@ app.put('/words', (req, res) => {
   edit(req.body)
   .then(response => {
     res.status(200).send(response);
+  })
+})
+
+app.delete('/words', (req, res) => {
+  remove(req.body)
+  .then(() => {
+    res.status(200).send('Message delete');
   })
 })
 

@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 const axios = require("axios").default;
 
-const WordEntry = ({ word, index, editable, setEditable, setList, setAllWords }) => {
+const WordEntry = ({ word, index, editable, setEditable, list, setList, setAllWords }) => {
 
   const [entry, setEntry] = useState(word);
 
   const handleDelete = (e, index) => {
-    axios.delete('/words', index)
+    let newList = [...list]
+    let item = newList.splice(index, 1);
+    axios.delete('/words', ({data: item[0]}))
+    .then(() => {
+      return axios.get('/words')
+      .then(response => {
+        setList(response.data)
+        setAllWords(response.data)
+      })
+    })
   }
 
   const handleChange = (e, index) => {

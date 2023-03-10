@@ -20,9 +20,14 @@ module.exports = {
   },
 
   edit: (newWord) => {
-    console.log('newWord: ', newWord._id);
     return Word.findByIdAndUpdate(newWord._id, newWord);
+  },
+
+  remove: ({word}) => {
+    console.log('word: ', word)
+    return Word.deleteOne({word: word});
   }
+
 }
 
 
