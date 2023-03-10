@@ -26,7 +26,7 @@ return (
     <h1>Glossary</h1>
     <AddWords list={list} setList={setList} setAllWords={setAllWords}/>
     <Search list={list} setList={setList} allWords={allWords}/>
-    <FormatList list={list} editable={editable} setEditable={setEditable} />
+    <FormatList list={list} editable={editable} setEditable={setEditable} setList={setList} setAllWords={setAllWords}/>
     </div>
   )
 }
