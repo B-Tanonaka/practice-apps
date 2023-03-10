@@ -5,17 +5,19 @@ const WordEntry = ({ word, index, editable, setEditable, list, setList, setAllWo
 
   const [entry, setEntry] = useState(word);
 
+  const renderPage = () => {
+    return axios.get('/words')
+    .then(response => {
+      setList(response.data)
+      setAllWords(response.data)
+    })
+  }
+
   const handleDelete = (e, index) => {
     let newList = [...list]
     let item = newList.splice(index, 1);
     axios.delete('/words', ({data: item[0]}))
-    .then(() => {
-      return axios.get('/words')
-      .then(response => {
-        setList(response.data)
-        setAllWords(response.data)
-      })
-    })
+    .then(renderPage())
   }
 
   const handleChange = (e, index) => {
@@ -28,13 +30,7 @@ const WordEntry = ({ word, index, editable, setEditable, list, setList, setAllWo
     console.log('entry: ', entry)
     setEditable(null);
     axios.put('/words', entry)
-    .then(() => {
-      return axios.get('/words')
-      .then(response => {
-        setList(response.data);
-        setAllWords(response.data);
-      })
-    })
+    .then(renderPage())
   }
 
     if (index === editable) {
@@ -42,8 +38,7 @@ const WordEntry = ({ word, index, editable, setEditable, list, setList, setAllWo
       <div index={index}>
         <input name="word" value={entry.word} onChange={(e, index) => handleChange(e, index)}/>
         <input name="description" value={entry.description} onChange={(e) => handleChange(e, index)}/>
-        <button onClick={handleEdit}>Edit</button>
-        <button onClick={(e) => handleDelete(e, index)}>Delete</button>
+        <button onClick={handleEdit}>Save</button>
       </div>)
 
     } else {
