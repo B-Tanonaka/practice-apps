@@ -12,6 +12,7 @@ const App = () => {
   const [list, setList] = useState([]);
   const [allWords, setAllWords] = useState(list);
   const [search, setSearch] = useState('');
+  const [editable, setEditable] = useState(null);
 
   useEffect(() => {
     axios.get('/words')
@@ -25,7 +26,7 @@ return (
     <h1>Glossary</h1>
     <AddWords list={list} setList={setList} setAllWords={setAllWords}/>
     <Search list={list} setList={setList} allWords={allWords}/>
-    <FormatList list={list} />
+    <FormatList list={list} editable={editable} setEditable={setEditable} />
     </div>
   )
 }

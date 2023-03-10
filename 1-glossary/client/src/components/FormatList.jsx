@@ -1,10 +1,10 @@
 import React from "react";
 import WordEntry from './WordEntry.jsx'
 
-const FormatList = ({ list }) => {
+const FormatList = ({ list, editable, setEditable }) => {
   return (
   <div>
-  {list.map((word, index) => <WordEntry key={index} word={word}/>)}
+  {list.map((word, index) => <WordEntry key={index} index={index} word={word} editable={editable} setEditable={setEditable}/>)}
   </div>
   )
 }
