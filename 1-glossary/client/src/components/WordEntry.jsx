@@ -3,12 +3,19 @@ const axios = require("axios").default;
 
 const WordEntry = ({ word, index, editable, setEditable, setList, setAllWords }) => {
 
+  const [entry, setEntry] = useState(word);
 
   const handleChange = (e, index) => {
     const { name, value } = e.target;
     e.preventDefault();
-    const editInput = index && name ? {...word, [name]: value} : word;
-    axios.put('/words', editInput)
+    // const editInput = index && name ? {...word, [name]: value} : word;
+    setEntry({...entry, [name]: value});
+  }
+
+  const handleEdit = (e, index) => {
+    console.log('entry: ', entry)
+    setEditable(null);
+    axios.put('/words', entry)
     .then(() => {
       return axios.get('/words')
       .then(response => {
@@ -21,9 +28,9 @@ const WordEntry = ({ word, index, editable, setEditable, setList, setAllWords })
     if (index === editable) {
       return (
       <div index={index}>
-        <input name="word" value={word.word} onChange={(e) => handleChange(e, index)}/>
-        <input name="description" value={word.description} onChange={(e) => handleChange(e, index)}/>
-        <button onClick={() => setEditable(null)}>Edit</button>
+        <input name="word" value={entry.word} onChange={(e, index) => handleChange(e, index)}/>
+        <input name="description" value={entry.description} onChange={(e) => handleChange(e, index)}/>
+        <button onClick={handleEdit}>Edit</button>
       </div>)
 
     } else {

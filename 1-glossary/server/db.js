@@ -17,6 +17,11 @@ module.exports = {
 
   getAll: () => {
     return Word.find({});
+  },
+
+  edit: (newWord) => {
+    console.log('newWord: ', newWord._id);
+    return Word.findByIdAndUpdate(newWord._id, newWord);
   }
 }
 

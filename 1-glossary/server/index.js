@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
-const { getAll, create } = require("./db");
+const { getAll, create, edit } = require("./db");
 
 const PORT = process.env.PORT || 2413;
 
@@ -28,6 +28,14 @@ app.get('/words', (req, res) => {
   getAll()
   .then(data => {
     res.status(200).send(data);
+  })
+})
+
+app.put('/words', (req, res) => {
+  edit(req.body)
+  .then(response => {
+    // console.log('response: ', response)
+    res.status(200).send(response);
   })
 })
 
