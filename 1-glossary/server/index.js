@@ -34,7 +34,6 @@ app.get('/words', (req, res) => {
 app.put('/words', (req, res) => {
   edit(req.body)
   .then(response => {
-    // console.log('response: ', response)
     res.status(200).send(response);
   })
 })

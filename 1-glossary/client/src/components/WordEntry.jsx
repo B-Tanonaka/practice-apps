@@ -5,6 +5,10 @@ const WordEntry = ({ word, index, editable, setEditable, setList, setAllWords })
 
   const [entry, setEntry] = useState(word);
 
+  const handleDelete = (e, index) => {
+    axios.delete('/words', index)
+  }
+
   const handleChange = (e, index) => {
     const { name, value } = e.target;
     e.preventDefault();
@@ -30,6 +34,7 @@ const WordEntry = ({ word, index, editable, setEditable, setList, setAllWords })
         <input name="word" value={entry.word} onChange={(e, index) => handleChange(e, index)}/>
         <input name="description" value={entry.description} onChange={(e) => handleChange(e, index)}/>
         <button onClick={handleEdit}>Edit</button>
+        <button onClick={(e) => handleDelete(e, index)}>Delete</button>
       </div>)
 
     } else {
@@ -40,6 +45,7 @@ const WordEntry = ({ word, index, editable, setEditable, setList, setAllWords })
         <span name="description" value={word.description} onChange={(e) => handleChange(e, index)}> {word.description}
           </span>
         <button onClick={() => setEditable(index)}>Edit</button>
+        <button onClick={(e) => handleDelete(e, index)}>Delete</button>
       </div>)
     }
 }
