@@ -8,7 +8,6 @@ const WordEntry = ({ word, index, editable, setEditable, setList, setAllWords })
   const handleChange = (e, index) => {
     const { name, value } = e.target;
     e.preventDefault();
-    // const editInput = index && name ? {...word, [name]: value} : word;
     setEntry({...entry, [name]: value});
   }
 
