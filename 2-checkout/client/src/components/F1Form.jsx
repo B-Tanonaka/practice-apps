@@ -6,7 +6,6 @@ const F1Form = ({ F1, setF1, showF1, showF2, setShowF1, setShowF2 }) => {
     e.preventDefault();
     setShowF1(false);
     setShowF2(true);
-    console.log('showF2: ', showF2);
   }
 
   if (showF1) {

@@ -79,7 +79,7 @@ const App = () => {
     <div>
       <h1>Checkout</h1>
       <F1Form F1={F1} setF1={setF1} showF1={showF1} setShowF1={setShowF1} showF2={showF2} setShowF2={setShowF2}/>
-      <F2Form F2={F2} setF2={setF2} showF2={showF2} setShowF2={setShowF2} showF3={showF3} setShowF3={setShowF3}/>
+      <F2Form F2={F2} setF2={setF2} showF2={showF2} setShowF1={setShowF1} setShowF2={setShowF2} showF3={showF3} setShowF3={setShowF3}/>
     </div>
   )
 }
