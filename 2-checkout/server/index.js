@@ -4,6 +4,7 @@ const path = require("path");
 const cors = require("cors");
 const sessionHandler = require("./middleware/session-handler");
 const logger = require("./middleware/logger");
+const { create, retrieve } = require("./models")
 
 // Establishes connection to the database on server start
 const db = require("./db");
@@ -25,11 +26,15 @@ app.use(logger);
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.get('/checkout', (req, res) => {
-  res.send('GET request successful');
+  retrieve()
+  .then(console.log('got here'))
+  .then(info => {
+    res.send(info);
+  })
 })
 
 app.post('/checkout', (req, res) => {
-  db.connectAsync(req.body)
+  create(req.body)
   .then(res.send('POST request successful'));
 })
 

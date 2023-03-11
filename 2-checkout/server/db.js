@@ -27,13 +27,12 @@ db.connectAsync()
         city CHAR(255),
         state CHAR(255),
         zipcode CHAR(255),
-        credit_card INT,
+        credit_card CHAR(25),
         expiry_date DATE,
         cvv INT(4),
         billing_zip INT(6)
         )`
     )
-  )
-  .catch((err) => console.log(err));
+  ).catch((err) => console.log(err));
 
 module.exports = db;
