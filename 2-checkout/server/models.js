@@ -23,8 +23,7 @@ module.exports = {
         data.expiry_date,
         data.cvv,
         data.billing_zip]
-      ).then(console.log('success creating'))
-        .catch(err => {console.log(err)})
+      ).catch(err => {console.log(err)})
     }
   }
 

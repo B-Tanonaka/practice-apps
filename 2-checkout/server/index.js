@@ -27,15 +27,21 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.get('/checkout', (req, res) => {
   retrieve()
-  .then(console.log('got here'))
+  // .then((info) => {console.log('info: ', info[0])})
   .then(info => {
-    res.send(info);
+    res.status(200).send(info[0]);
+  }).catch((err) => {
+    res.status(404).send(err);
   })
 })
 
 app.post('/checkout', (req, res) => {
   create(req.body)
-  .then(res.send('POST request successful'));
+  .then(() => {
+    res.send()
+  }).catch(err => {
+    res.status(404).send(err)
+  })
 })
 
 app.listen(process.env.PORT);
