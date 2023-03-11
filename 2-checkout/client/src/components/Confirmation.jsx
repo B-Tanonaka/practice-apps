@@ -1,14 +1,9 @@
 import react, { useState } from "react";
 
-const Confirmation = ({ F1, F2, F3, setShowF3, confirm, setConfirm, totalForm, setTotalForm }) => {
-
-  const allData = () => {
-    setTotalForm({...totalForm, [name]: value})
-  }
+const Confirmation = ({ setShowF3, confirm, setConfirm, totalForm, setTotalForm }) => {
 
   const handleNext = (e) => {
     e.preventDefault();
-    setConfirm(false);
   }
 
   const handleBack = (e) => {
@@ -21,6 +16,7 @@ const Confirmation = ({ F1, F2, F3, setShowF3, confirm, setConfirm, totalForm, s
 
   return (
     <div>
+      <div>{totalForm}</div>
       <button onClick={handleBack}>Back</button>
       <button onClick={handleNext}>Purchase</button>
     </div>
