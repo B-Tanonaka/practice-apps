@@ -45,9 +45,6 @@ const App = () => {
   }
 
   const [totalForm, setTotalForm] = useState(totalFormDefault);
-  const [F1, setF1] = useState(form1Default);
-  const [F2, setF2] = useState(form2Default);
-  const [F3, setF3] = useState(form3Default);
   const [showF1, setShowF1] = useState(true);
   const [showF2, setShowF2] = useState(false);
   const [showF3, setShowF3] = useState(false);
@@ -82,7 +79,7 @@ const App = () => {
       <F1Form totalForm={totalForm} setTotalForm={setTotalForm} showF1={showF1} setShowF1={setShowF1} showF2={showF2} setShowF2={setShowF2}/>
       <F2Form totalForm={totalForm} setTotalForm={setTotalForm} setShowF1={setShowF1} showF2={showF2}  setShowF2={setShowF2} showF3={showF3} setShowF3={setShowF3}/>
       <F3Form totalForm={totalForm} setTotalForm={setTotalForm} setShowF2={setShowF2} showF3={showF3} setShowF3={setShowF3} setConfirm={setConfirm}/>
-      <Confirmation totalForm={totalForm} setTotalForm={setTotalForm} confirm={confirm} setConfirm={setConfirm} />
+      <Confirmation totalForm={totalForm} setTotalForm={setTotalForm} confirm={confirm} setShowF3={setShowF3} setConfirm={setConfirm} addEntry={addEntry}/>
     </div>
   )
 }

@@ -6,7 +6,7 @@ const F3Form = ({ totalForm, setTotalForm, setShowF2, showF3, setShowF3, setConf
     e.preventDefault();
     setShowF3(false);
     setConfirm(true);
-    console.log('totalForm: ', totalForm);
+    // console.log('totalForm: ', totalForm);
   }
 
   const handleBack = (e) => {
@@ -24,7 +24,7 @@ const F3Form = ({ totalForm, setTotalForm, setShowF2, showF3, setShowF3, setConf
         <input name="credit_card" type="text" value={totalForm.credit_card} onChange={e => setTotalForm({...totalForm, credit_card: e.target.value})} />
       </div>
       <div>
-        <h4>Expiry Date</h4>
+        <h4>Expiration Date</h4>
         <input name="expiry_date" type="date" value={totalForm.expiry_date} onChange={e => setTotalForm({...totalForm, expiry_date: e.target.value})} />
       </div>
       <span>
