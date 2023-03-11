@@ -1,9 +1,14 @@
 import react, { useState } from 'react';
 import axios from 'axios';
+import FormatInfo from './FormatInfo.jsx'
+import F1Form from './F1Form.jsx'
+import F2Form from './F2Form.jsx'
+import F3Form from './F3Form.jsx'
+import Confirmation from './Confirmation.jsx'
 
 const App = () => {
 
-  const [totalForm, setTotalForm] = {{}};
+  const [totalForm, setTotalForm] = useState({});
   const [F1, setF1] = useState({});
   const [F2, setF2] = useState({});
   const [F3, setF3] = useState({});
