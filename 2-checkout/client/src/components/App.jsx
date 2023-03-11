@@ -51,6 +51,7 @@ const App = () => {
   const [showF1, setShowF1] = useState(true);
   const [showF2, setShowF2] = useState(false);
   const [showF3, setShowF3] = useState(false);
+  const [confirm, setConfirm] = useState(false);
 
   const getEntry = () => {
     axios.get('/checkout')
@@ -80,7 +81,8 @@ const App = () => {
       <h1>Checkout</h1>
       <F1Form F1={F1} setF1={setF1} showF1={showF1} setShowF1={setShowF1} showF2={showF2} setShowF2={setShowF2}/>
       <F2Form F2={F2} setF2={setF2} setShowF1={setShowF1} showF2={showF2}  setShowF2={setShowF2} showF3={showF3} setShowF3={setShowF3}/>
-      <F3Form F3={F3} setF3={setF3} setShowF2={setShowF2} showF3={showF3} setShowF3={setShowF3}/>
+      <F3Form F3={F3} setF3={setF3} setShowF2={setShowF2} showF3={showF3} setShowF3={setShowF3} setConfirm={setConfirm}/>
+      <Confirmation F1={F1} F2={F2} F3={F3} setShowF3={setShowF3} confirm={confirm} setConfirm={setConfirm} totalForm={totalForm} setTotalForm={setTotalForm}/>
     </div>
   )
 }

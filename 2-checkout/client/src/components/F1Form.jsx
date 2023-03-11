@@ -2,10 +2,11 @@ import react, { useState } from "react";
 
 const F1Form = ({ F1, setF1, showF1, showF2, setShowF1, setShowF2 }) => {
 
-  const handleClick = (e) => {
+  const handleNext = (e) => {
     e.preventDefault();
     setShowF1(false);
     setShowF2(true);
+    console.log('Form1: ', F1)
   }
 
   if (showF1) {
@@ -24,7 +25,7 @@ const F1Form = ({ F1, setF1, showF1, showF2, setShowF1, setShowF2 }) => {
         <h4>Password</h4>
         <input name="password" type="text" value={F1.password} onChange={e => setF1({...F1, password: e.target.value})} />
       </div>
-      <button onClick={handleClick}>Next</button>
+      <button onClick={handleNext}>Next</button>
     </div>
     )
   }

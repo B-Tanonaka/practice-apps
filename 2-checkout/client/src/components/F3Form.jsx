@@ -1,10 +1,11 @@
 import react, { useState } from "react";
 
-const F3Form = ({ F3, setF3, setShowF2, showF3, setShowF3 }) => {
+const F3Form = ({ F3, setF3, setShowF2, showF3, setShowF3, setConfirm }) => {
 
   const handleNext = (e) => {
     e.preventDefault();
-    setShowF2(false);
+    setShowF3(false);
+    setConfirm(true);
   }
 
   const handleBack = (e) => {
