@@ -6,7 +6,7 @@ const F3Form = ({ totalForm, setTotalForm, setShowF2, showF3, setShowF3, setConf
     e.preventDefault();
     setShowF3(false);
     setConfirm(true);
-    // console.log('totalForm: ', totalForm);
+    console.log('totalForm: ', totalForm);
   }
 
   const handleBack = (e) => {
@@ -29,11 +29,11 @@ const F3Form = ({ totalForm, setTotalForm, setShowF2, showF3, setShowF3, setConf
       </div>
       <span>
         <h4>CVV</h4>
-        <input name="cvv" type="text" value={totalForm.cvv} onChange={e => setTotalForm({...totalForm, cvv: e.target.value})} />
+        <input name="cvv" type="text" value={totalForm.cvv} onChange={e => setTotalForm({...totalForm, cvv: Number(e.target.value)})} />
       </span>
       <div>
         <h4>Billing Zipcode</h4>
-        <input name="billing_zip" type="text" value={totalForm.billing_zip} onChange={e => setTotalForm({...totalForm, billing_zip: e.target.value})} />
+        <input name="billing_zip" type="text" value={totalForm.billing_zip} onChange={e => setTotalForm({...totalForm, billing_zip: Number(e.target.value)})} />
       </div>
       <button onClick={handleBack}>Back</button>
       <button onClick={handleNext}>Next</button>

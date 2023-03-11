@@ -25,8 +25,8 @@ const Confirmation = ({ setShowF3, confirm, setConfirm, totalForm, setTotalForm,
       <p><b>Name:</b> {totalForm.name}</p>
       <p><b>Email:</b> {totalForm.email}</p>
       <p><b>Password:</b> {totalForm.password}</p>
-      <p><b>Address Line-1:</b> {totalForm.address1}</p>
-      <p><b>Address Line-2:</b> {totalForm.address2}</p>
+      <p><b>Address Line-1:</b> {totalForm.address_1}</p>
+      <p><b>Address Line-2:</b> {totalForm.address_2}</p>
       <p><b>City:</b> {totalForm.city}</p>
       <p><b>State:</b> {totalForm.state}</p>
       <p><b>Zipcode:</b> {totalForm.zipcode}</p>
@@ -40,7 +40,7 @@ const Confirmation = ({ setShowF3, confirm, setConfirm, totalForm, setTotalForm,
     )
   }
   if (complete && !confirm) {
-    return <h1>Thank you for your purchase!</h1>;
+    return <h2>Thank you for your purchase!</h2>;
   }
 
   return null;

@@ -33,15 +33,15 @@ const App = () => {
     name: '',
     email: '',
     password: '',
-    address1: '',
-    address2: '',
+    address_1: '',
+    address_2: '',
     city: '',
     state: '',
     zipcode: '',
     credit_card: '',
     expiry_date: '',
-    cvv: '',
-    billing_zip: '',
+    cvv: null,
+    billing_zip: null,
   }
 
   const [totalForm, setTotalForm] = useState(totalFormDefault);
@@ -57,7 +57,7 @@ const App = () => {
   }
 
   const addEntry = (totalForm) => {
-    axios.post('/checkout')
+    axios.post('/checkout', totalForm)
     .catch(err => console.log(err))
   }
 
