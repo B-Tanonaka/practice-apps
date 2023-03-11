@@ -12,29 +12,29 @@ const F1Form = ({ F1, setF1 }) => {
     // console.log('value: ', value)
     e.preventDefault();
     // console.log('username: ', username)
-    console.log('email: ', email)
-    console.log('password: ', password)
+    // console.log('email: ', email)
+    // console.log('password: ', password)
     // let newF1 = {...F1, [name]: value}
     // setF1(newF1);
-    console.log(F1);
+    console.log('handleClickF1:', F1);
   }
 
   return (
-    <form>
+    <div>
       <div>
         <h4>Name</h4>
-        <input name={name} type="text" value={F1.name} onChange={e => setF1({...F1, [name]: e.target.value})} />
+        <input name={name} type="text" value={F1.name} onChange={e => setF1({...F1, name: e.target.value})} />
       </div>
       <div>
         <h4>Email</h4>
-        <input name={email} type="text" value={email} onChange={e => setEmail(e.target.value)} />
+        <input name={email} value={F1.email} onChange={e => setF1({...F1, email: e.target.value})} />
       </div>
       <div>
         <h4>Password</h4>
-        <input name={password} type="text" value={password} onChange={e => setPassword(e.target.value)} />
+        <input name={password} type="text" value={F1.password} onChange={e => setF1({...F1, password: e.target.value})} />
       </div>
-      <button onSubmit={handleClick}>Next</button>
-    </form>
+      <button onClick={handleClick}>Next</button>
+    </div>
 
   )
 
