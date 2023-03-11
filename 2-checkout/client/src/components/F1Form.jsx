@@ -1,15 +1,18 @@
 import react, { useState } from "react";
 
-const F1Form = ({ F1, setF1 }) => {
+const F1Form = ({ F1, setF1, hideF1, setHideF1, setHideF2 }) => {
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleClick = (e) => {
-    let {name, value} = e.target;
     e.preventDefault();
+    setHideF1(true);
+    setHideF2(false);
   }
+
+  if (!hideF1) {
 
   return (
     <div>
@@ -27,9 +30,9 @@ const F1Form = ({ F1, setF1 }) => {
       </div>
       <button onClick={handleClick}>Next</button>
     </div>
-
-  )
-
+    )
+  }
+  return null;
 }
 
 export default F1Form;

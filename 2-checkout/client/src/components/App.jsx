@@ -48,6 +48,9 @@ const App = () => {
   const [F1, setF1] = useState(form1Default);
   const [F2, setF2] = useState(form2Default);
   const [F3, setF3] = useState(form3Default);
+  const [hideF1, setHideF1] = useState(false);
+  const [hideF2, setHideF2] = useState(true);
+  const [hideF3, setHideF3] = useState(true);
 
   const getEntry = () => {
     axios.get('/checkout')
@@ -75,7 +78,7 @@ const App = () => {
   return (
     <div>
       <h1>Checkout</h1>
-      <F1Form F1={F1} setF1={setF1}/>
+      <F1Form F1={F1} setF1={setF1} hideF1={hideF1} setHideF1={setHideF1} setHideF2={setHideF2}/>
     </div>
   )
 }
