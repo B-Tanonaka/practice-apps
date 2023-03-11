@@ -9,6 +9,13 @@ module.exports = {
     )
   },
 
+  remove: ({email}) => {
+    console.log('email: ', email)
+    return db.queryAsync(
+      `DELETE FROM responses WHERE email = "${email}"`
+    ).catch(err => console.log(err))
+  },
+
   create: (data) => {
       return db.queryAsync(
         'INSERT INTO responses (name, email, password, address_1, address_2, city, state, zipcode, credit_card, expiry_date, cvv, billing_zip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [data.name,
@@ -23,7 +30,7 @@ module.exports = {
         data.expiry_date,
         data.cvv,
         data.billing_zip]
-      ).catch(err => {console.log(err)})
+      ).catch(err => console.log(err))
     }
   }
 

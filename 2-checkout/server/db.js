@@ -30,7 +30,8 @@ db.connectAsync()
         credit_card CHAR(25),
         expiry_date DATE,
         cvv INT(4),
-        billing_zip INT(6)
+        billing_zip INT(6),
+        UNIQUE KEY (email)
         )`
     )
   ).catch((err) => console.log(err));

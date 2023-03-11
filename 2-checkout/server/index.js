@@ -4,7 +4,7 @@ const path = require("path");
 const cors = require("cors");
 const sessionHandler = require("./middleware/session-handler");
 const logger = require("./middleware/logger");
-const { create, retrieve } = require("./models")
+const { create, retrieve, remove } = require("./models")
 
 // Establishes connection to the database on server start
 const db = require("./db");
@@ -39,6 +39,16 @@ app.post('/checkout', (req, res) => {
   create(req.body)
   .then(() => {
     res.send()
+  }).catch(err => {
+    res.status(404).send(err)
+  })
+})
+
+app.delete('/checkout', (req, res) => {
+  console.log('req.body: ', req.body);
+  remove(req.body)
+  .then(() => {
+    res.status(200).send('delete successful')
   }).catch(err => {
     res.status(404).send(err)
   })
