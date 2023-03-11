@@ -8,10 +8,46 @@ import Confirmation from './Confirmation.jsx'
 
 const App = () => {
 
-  const [totalForm, setTotalForm] = useState({});
-  const [F1, setF1] = useState({});
-  const [F2, setF2] = useState({});
-  const [F3, setF3] = useState({});
+  const form1Default = {
+    name: '',
+    email: '',
+    password: '',
+  }
+
+  const form2Default = {
+    address1: '',
+    address2: '',
+    city: '',
+    state: '',
+    zipcode: '',
+  }
+
+  const form3Default = {
+    credit_card: '',
+    expiry_date: '',
+    cvv: 0,
+    billing_zip: 0,
+  }
+
+  const totalFormDefault = {
+    name: '',
+    email: '',
+    password: '',
+    address1: '',
+    address2: '',
+    city: '',
+    state: '',
+    zipcode: '',
+    credit_card: '',
+    expiry_date: '',
+    cvv: 0,
+    billing_zip: 0,
+  }
+
+  const [totalForm, setTotalForm] = useState(totalFormDefault);
+  const [F1, setF1] = useState(form1Default);
+  const [F2, setF2] = useState(form2Default);
+  const [F3, setF3] = useState(form3Default);
 
   const getEntry = () => {
     axios.get('/checkout')
@@ -38,9 +74,8 @@ const App = () => {
 
   return (
     <div>
-      <F1 />
-      <F2 />
-      <F3 />
+      <h1>Checkout</h1>
+      <F1Form F1={F1} setF1={setF1}/>
     </div>
   )
 }
