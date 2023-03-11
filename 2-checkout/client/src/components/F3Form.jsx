@@ -23,7 +23,7 @@ const F3Form = ({ F3, setF3, setShowF2, showF3, setShowF3 }) => {
       </div>
       <div>
         <h4>Expiry Date</h4>
-        <input name="expiry_date" value={F3.expiry_date} onChange={e => setF3({...F3, expiry_date: e.target.value})} />
+        <input name="expiry_date" type="date" value={F3.expiry_date} onChange={e => setF3({...F3, expiry_date: e.target.value})} />
       </div>
       <span>
         <h4>CVV</h4>

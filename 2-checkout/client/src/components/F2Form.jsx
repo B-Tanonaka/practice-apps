@@ -6,7 +6,6 @@ const F2Form = ({ F2, setF2, showF2, setShowF1, setShowF2, setShowF3 }) => {
     e.preventDefault();
     setShowF2(false);
     setShowF3(true);
-    console.log('F2: ', F2)
   }
 
   const handleBack = (e) => {

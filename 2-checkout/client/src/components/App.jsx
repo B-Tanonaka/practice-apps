@@ -25,8 +25,8 @@ const App = () => {
   const form3Default = {
     credit_card: '',
     expiry_date: '',
-    cvv: 0,
-    billing_zip: 0,
+    cvv: '',
+    billing_zip: '',
   }
 
   const totalFormDefault = {
