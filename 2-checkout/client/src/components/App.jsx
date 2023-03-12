@@ -40,8 +40,8 @@ const App = () => {
     zipcode: '',
     credit_card: '',
     expiry_date: '',
-    cvv: null,
-    billing_zip: null,
+    cvv: '',
+    billing_zip: '',
   }
 
   const [totalForm, setTotalForm] = useState(totalFormDefault);
@@ -79,7 +79,7 @@ const App = () => {
       <F1Form totalForm={totalForm} setTotalForm={setTotalForm} showF1={showF1} setShowF1={setShowF1} showF2={showF2} setShowF2={setShowF2}/>
       <F2Form totalForm={totalForm} setTotalForm={setTotalForm} setShowF1={setShowF1} showF2={showF2}  setShowF2={setShowF2} showF3={showF3} setShowF3={setShowF3}/>
       <F3Form totalForm={totalForm} setTotalForm={setTotalForm} setShowF2={setShowF2} showF3={showF3} setShowF3={setShowF3} setConfirm={setConfirm}/>
-      <Confirmation totalForm={totalForm} setTotalForm={setTotalForm} confirm={confirm} setShowF3={setShowF3} setConfirm={setConfirm} addEntry={addEntry}/>
+      <Confirmation totalForm={totalForm} setTotalForm={setTotalForm} confirm={confirm} setShowF1={setShowF1} setShowF3={setShowF3} setConfirm={setConfirm} addEntry={addEntry} deleteEntry={deleteEntry}/>
     </div>
   )
 }

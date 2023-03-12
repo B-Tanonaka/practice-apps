@@ -1,8 +1,9 @@
 import react, { useState } from "react";
 
-const Confirmation = ({ setShowF3, confirm, setConfirm, totalForm, setTotalForm, addEntry }) => {
+const Confirmation = ({ setShowF1, setShowF3, confirm, setConfirm, totalForm, setTotalForm, addEntry, deleteEntry }) => {
 
   const [complete, setComplete] = useState(false);
+  const [cancelOrder, setCancelOrder] = useState(false);
 
   const handleNext = (e) => {
     e.preventDefault();
@@ -15,6 +16,20 @@ const Confirmation = ({ setShowF3, confirm, setConfirm, totalForm, setTotalForm,
     e.preventDefault();
     setConfirm(false);
     setShowF3(true);
+  }
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    setConfirm(false);
+    setComplete(false);
+    setCancelOrder(true);
+    deleteEntry(totalForm);
+  }
+
+  const startOver = (e) => {
+    e.preventDefault();
+    setCancelOrder(false);
+    setShowF1(true);
   }
 
   if (confirm) {
@@ -40,7 +55,21 @@ const Confirmation = ({ setShowF3, confirm, setConfirm, totalForm, setTotalForm,
     )
   }
   if (complete && !confirm) {
-    return <h2>Thank you for your purchase!</h2>;
+    return (
+    <div>
+      <h2>Thank you for your purchase!</h2>
+      <button onClick={handleDelete}>Cancel order</button>
+    </div>
+    )
+  }
+
+  if (cancelOrder) {
+    return (
+      <div>
+        <h5>Your order has been cancelled</h5>
+        <button onClick={startOver}>Start over</button>
+      </div>
+    )
   }
 
   return null;
