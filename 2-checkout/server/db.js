@@ -19,6 +19,7 @@ db.connectAsync()
     db.queryAsync(
       `CREATE TABLE IF NOT EXISTS responses (
         id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        session_id CHAR(50),
         name CHAR(100),
         email CHAR(50),
         password CHAR(20),
@@ -31,7 +32,7 @@ db.connectAsync()
         expiry_date DATE,
         cvv INT(4),
         billing_zip INT(6),
-        UNIQUE KEY (email)
+        UNIQUE KEY (session_id)
         )`
     )
   ).catch((err) => console.log(err));

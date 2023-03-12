@@ -15,17 +15,18 @@ module.exports = {
     ).catch(err => console.log(err))
   },
 
-  change: (entry) => {
+  change: (entry, session_id) => {
     console.log(entry)
     return db.connectAsync(
-      `UPDATE responses SET ${entry} WHERE email = "${entry.email}`,
+      `UPDATE responses SET ${entry} WHERE session_id = "${session_id}"`,
     ).catch(err => {console.log(err)});
   },
 
-  create: (entry) => {
+  create: (entry, session_id) => {
       return db.queryAsync(
-        'INSERT INTO responses (name, email, password, address_1, address_2, city, state, zipcode, credit_card, expiry_date, cvv, billing_zip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-        [entry.name,
+        'INSERT INTO responses (session_id, name, email, password, address_1, address_2, city, state, zipcode, credit_card, expiry_date, cvv, billing_zip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        [session_id,
+        entry.name,
         entry.email,
         entry.password,
         entry.address_1,
