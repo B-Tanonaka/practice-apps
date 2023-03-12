@@ -2,9 +2,6 @@ import react, { useState } from "react";
 
 const Confirmation = ({ setShowF1, setShowF3, confirm, setConfirm, totalForm, setTotalForm, addEntry, deleteEntry }) => {
 
-  const [complete, setComplete] = useState(false);
-  const [cancelOrder, setCancelOrder] = useState(false);
-
   const handleNext = (e) => {
     e.preventDefault();
     addEntry(totalForm);

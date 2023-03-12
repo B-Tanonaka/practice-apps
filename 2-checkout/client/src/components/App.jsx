@@ -8,27 +8,6 @@ import Confirmation from './Confirmation.jsx'
 
 const App = () => {
 
-  const form1Default = {
-    name: '',
-    email: '',
-    password: '',
-  }
-
-  const form2Default = {
-    address1: '',
-    address2: '',
-    city: '',
-    state: '',
-    zipcode: '',
-  }
-
-  const form3Default = {
-    credit_card: '',
-    expiry_date: '',
-    cvv: '',
-    billing_zip: '',
-  }
-
   const totalFormDefault = {
     name: '',
     email: '',

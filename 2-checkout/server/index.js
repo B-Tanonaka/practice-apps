@@ -44,7 +44,7 @@ app.delete('/checkout', (req, res) => {
   .catch(err => {res.status(404).send(err)})
 })
 
-app.patch('/checkout', (res, req) => {
+app.patch('/checkout/:id', (res, req) => {
   change(res.body)
   .then(() => {res.status(200).send('Edit successful')})
   .catch(err => {res.status(500).send(err)})
