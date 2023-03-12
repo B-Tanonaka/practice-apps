@@ -24,7 +24,6 @@ module.exports = {
   },
 
   remove: ({word}) => {
-    console.log('word: ', word)
     return Word.deleteOne({word: word});
   }
 

@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.get('/checkout', (req, res) => {
   // console.log('req: ', req.session_id)
-  retrieve()
+  getAll()
   .then(info => {res.status(200).send(info[0]);})
   .catch((err) => {res.status(404).send(err);})
 })
@@ -44,7 +44,7 @@ app.delete('/checkout', (req, res) => {
   .catch(err => {res.status(404).send(err)})
 })
 
-app.patch('/checkout/:id', (res, req) => {
+app.patch('/checkout/', (res, req) => {
   change(res.bod, req.session_id)
   .then(() => {res.status(200).send('Edit successful')})
   .catch(err => {res.status(500).send(err)})

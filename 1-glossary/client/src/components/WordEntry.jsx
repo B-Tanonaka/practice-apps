@@ -8,6 +8,7 @@ const WordEntry = ({ word, index, editable, setEditable, list, setList, setAllWo
   const renderPage = () => {
     return axios.get('/words')
     .then(response => {
+      // console.log('response.data: ', response.data);
       setList(response.data)
       setAllWords(response.data)
     })
