@@ -49,6 +49,8 @@ const App = () => {
   const [showF2, setShowF2] = useState(false);
   const [showF3, setShowF3] = useState(false);
   const [confirm, setConfirm] = useState(false);
+  const [complete, setComplete] = useState(false);
+  const [cancelOrder, setCancelOrder] = useState(false);
 
   const getEntry = () => {
     axios.get('/checkout')
@@ -63,7 +65,7 @@ const App = () => {
 
   const editEntry = (totalForm) => {
     getEntry()
-    .then(axios.patch('/checkout'))
+    .then(axios.patch('/checkout', totalForm))
     .catch(err => console.log(err))
   }
 
@@ -72,14 +74,24 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
+  const sendToHome = (e) => {
+    e.preventDefault();
+    setShowF1(true);
+    setShowF2(false);
+    setShowF3(false);
+    setCancelOrder(false);
+    setComplete(false);
+    setConfirm(false);
+  }
+
 
   return (
     <div>
-      <h1>Checkout</h1>
+      <h1 onClick={sendToHome}>Checkout</h1>
       <F1Form totalForm={totalForm} setTotalForm={setTotalForm} showF1={showF1} setShowF1={setShowF1} showF2={showF2} setShowF2={setShowF2}/>
       <F2Form totalForm={totalForm} setTotalForm={setTotalForm} setShowF1={setShowF1} showF2={showF2}  setShowF2={setShowF2} showF3={showF3} setShowF3={setShowF3}/>
       <F3Form totalForm={totalForm} setTotalForm={setTotalForm} setShowF2={setShowF2} showF3={showF3} setShowF3={setShowF3} setConfirm={setConfirm}/>
-      <Confirmation totalForm={totalForm} setTotalForm={setTotalForm} confirm={confirm} setShowF1={setShowF1} setShowF3={setShowF3} setConfirm={setConfirm} addEntry={addEntry} deleteEntry={deleteEntry}/>
+      <Confirmation totalForm={totalForm} setTotalForm={setTotalForm} confirm={confirm} setShowF1={setShowF1} setShowF3={setShowF3} setConfirm={setConfirm} addEntry={addEntry} deleteEntry={deleteEntry} complete={complete} setComplete={setComplete} cancelOrder={cancelOrder} setCancelOrder={setCancelOrder}/>
     </div>
   )
 }

@@ -21,11 +21,11 @@ const F2Form = ({ totalForm, setTotalForm, showF2, setShowF1, setShowF2, setShow
     <div>
       <div>
         <h4>Address - Line 1</h4>
-        <input name="address1" type="text" value={totalForm.address1} onChange={e => setTotalForm({...totalForm, address_1: e.target.value})} />
+        <input name="address1" type="text" value={totalForm.address_1} onChange={e => setTotalForm({...totalForm, address_1: e.target.value})} />
       </div>
       <div>
         <h4>Address - Line 2</h4>
-        <input name="address2" value={totalForm.address2} onChange={e => setTotalForm({...totalForm, address_2: e.target.value})} />
+        <input name="address2" value={totalForm.address_2} onChange={e => setTotalForm({...totalForm, address_2: e.target.value})} />
       </div>
       <span>
         <h4>City</h4>

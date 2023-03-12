@@ -30,6 +30,7 @@ const Confirmation = ({ setShowF1, setShowF3, confirm, setConfirm, totalForm, se
     e.preventDefault();
     setCancelOrder(false);
     setShowF1(true);
+    console.log('totalFormStartOver: ', totalForm);
   }
 
   if (confirm) {

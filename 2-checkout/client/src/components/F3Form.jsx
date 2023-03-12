@@ -6,7 +6,7 @@ const F3Form = ({ totalForm, setTotalForm, setShowF2, showF3, setShowF3, setConf
     e.preventDefault();
     setShowF3(false);
     setConfirm(true);
-    console.log('totalForm: ', totalForm);
+    console.log('totalFormF3: ', totalForm);
   }
 
   const handleBack = (e) => {
